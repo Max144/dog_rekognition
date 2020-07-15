@@ -8,6 +8,8 @@ provider:
         BUCKET_NAME: '*'
         AWS_USER_KEY: '*'
         AWS_USER_SECRET: '*'
+        SENDER_EMAIL: '*'
+        RECEPIENT_EMAIL: '*'
 
 plugins:
     - ./vendor/bref/bref

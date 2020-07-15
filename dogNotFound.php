@@ -14,8 +14,8 @@ return function ($event) {
         ]
     ]);
 
-    $senderEmail = 'iiejibmenb@gmail.com';
-    $recipient_emails = ['iiejibmenb@gmail.com'];
+    $senderEmail = getenv('SENDER_EMAIL');
+    $recipient_emails = [getenv('RECEPIENT_EMAIL')];
 
     $subject = 'Dog not found';
     $plaintext_body = 'Dog not found' ;
