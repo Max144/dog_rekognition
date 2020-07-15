@@ -1,0 +1,37 @@
+service: app
+
+provider:
+    name: aws
+    region: eu-central-1
+    runtime: provided
+    environment:
+        BUCKET_NAME: '*'
+        AWS_USER_KEY: '*'
+        AWS_USER_SECRET: '*'
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    dog_rekognition:
+        handler: dogRekognition.php
+        description: ''
+        layers:
+            - ${bref:layer.php-73}
+        environment:
+            MIN_CONFIDENCE: 90
+    dog_not_found:
+        handler: dogNotFound.php
+        description: ''
+        layers:
+            - ${bref:layer.php-73}
+    dog_found:
+        handler: dogFound.php
+        description: ''
+        layers:
+            - ${bref:layer.php-73}
+
+# Exclude files from deployment
+package:
+    exclude:
+        - 'tests/**'
